@@ -38,12 +38,31 @@
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.属性查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
+            this.AttTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WaterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ResidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TrafficToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+
+            this.splitter1 = new System.Windows.Forms.Splitter();
+
+
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -112,7 +131,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(568, 358);
+            this.tabPage2.Size = new System.Drawing.Size(568, 357);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "专题图";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -132,21 +151,108 @@
             this.axPageLayoutControl1.Location = new System.Drawing.Point(3, 3);
             this.axPageLayoutControl1.Name = "axPageLayoutControl1";
             this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
-            this.axPageLayoutControl1.Size = new System.Drawing.Size(562, 352);
+            this.axPageLayoutControl1.Size = new System.Drawing.Size(562, 351);
             this.axPageLayoutControl1.TabIndex = 0;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+
+            this.FileToolStripMenuItem,
+            this.ToolToolStripMenuItem,
+            this.AttTableToolStripMenuItem,
+            this.AboutToolStripMenuItem});
+
             this.文件ToolStripMenuItem,
             this.工具ToolStripMenuItem,
-            this.属性查询ToolStripMenuItem,
+            this.AttTableToolStripMenuItem,
             this.关于ToolStripMenuItem});
+
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(752, 25);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FileToolStripMenuItem
+            // 
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.FileToolStripMenuItem.Text = "文件";
+            // 
+            // ToolToolStripMenuItem
+            // 
+            this.ToolToolStripMenuItem.Name = "ToolToolStripMenuItem";
+            this.ToolToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.ToolToolStripMenuItem.Text = "工具";
+            // 
+            // 文件ToolStripMenuItem
+            // 
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // 工具ToolStripMenuItem
+            // 
+            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
+            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.工具ToolStripMenuItem.Text = "工具";
+            // 
+            // AttTableToolStripMenuItem
+            // 
+            this.AttTableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TypeToolStripMenuItem,
+            this.WaterToolStripMenuItem,
+            this.ResidentToolStripMenuItem,
+            this.TrafficToolStripMenuItem});
+            this.AttTableToolStripMenuItem.Name = "AttTableToolStripMenuItem";
+            this.AttTableToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.AttTableToolStripMenuItem.Text = "属性查询";
+            // 
+            // TypeToolStripMenuItem
+            // 
+            this.TypeToolStripMenuItem.Name = "TypeToolStripMenuItem";
+            this.TypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TypeToolStripMenuItem.Text = "植被覆盖类型";
+            this.TypeToolStripMenuItem.Click += new System.EventHandler(this.TypeToolStripMenuItem_Click);
+            // 
+            // WaterToolStripMenuItem
+            // 
+            this.WaterToolStripMenuItem.Name = "WaterToolStripMenuItem";
+            this.WaterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.WaterToolStripMenuItem.Text = "水系";
+            this.WaterToolStripMenuItem.Click += new System.EventHandler(this.WaterToolStripMenuItem_Click);
+            // 
+            // ResidentToolStripMenuItem
+            // 
+            this.ResidentToolStripMenuItem.Name = "ResidentToolStripMenuItem";
+            this.ResidentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ResidentToolStripMenuItem.Text = "居民地";
+            this.ResidentToolStripMenuItem.Click += new System.EventHandler(this.ResidentToolStripMenuItem_Click);
+            // 
+            // TrafficToolStripMenuItem
+            // 
+            this.TrafficToolStripMenuItem.Name = "TrafficToolStripMenuItem";
+            this.TrafficToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TrafficToolStripMenuItem.Text = "交通";
+            this.TrafficToolStripMenuItem.Click += new System.EventHandler(this.TrafficToolStripMenuItem_Click);
+            // 
+            // AboutToolStripMenuItem
+            // 
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.AboutToolStripMenuItem.Text = "关于";
+            // 属性查询ToolStripMenuItem
+            // 
+            this.属性查询ToolStripMenuItem.Name = "属性查询ToolStripMenuItem";
+            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.属性查询ToolStripMenuItem.Text = "属性查询";
+            // 
+            // 关于ToolStripMenuItem
+            // 
+            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.关于ToolStripMenuItem.Text = "关于";
             // 
             // comboBox1
             // 
@@ -183,35 +289,20 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "土地利用类型：";
             // 
-            // 文件ToolStripMenuItem
+            // splitter1
             // 
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // 工具ToolStripMenuItem
-            // 
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.工具ToolStripMenuItem.Text = "工具";
-            // 
-            // 属性查询ToolStripMenuItem
-            // 
-            this.属性查询ToolStripMenuItem.Name = "属性查询ToolStripMenuItem";
-            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.属性查询ToolStripMenuItem.Text = "属性查询";
-            // 
-            // 关于ToolStripMenuItem
-            // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.关于ToolStripMenuItem.Text = "关于";
+            this.splitter1.Location = new System.Drawing.Point(176, 53);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 383);
+            this.splitter1.TabIndex = 7;
+            this.splitter1.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 436);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tabControl1);
@@ -221,6 +312,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "岷山基础地理信息查询系统";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -249,10 +341,22 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AttTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+
         private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 属性查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AttTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem TypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WaterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ResidentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TrafficToolStripMenuItem;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }
 
