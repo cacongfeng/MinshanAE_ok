@@ -26,34 +26,38 @@ namespace MinshanAE
         public MainForm()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;//设置窗体最大化显示
         }
 
+        //植被覆盖类型属性查询
         private void TypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1,"植被覆盖类型");
             attTable.ShowDialog(this);
         }
 
+        //水系图层属性查询
         private void WaterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "水系");
             attTable.ShowDialog(this);
         }
 
+        //居民地图层属性查询
         private void ResidentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "居民地");
             attTable.ShowDialog(this);
         }
 
+        //交通图层属性查询
         private void TrafficToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "交通");
             attTable.ShowDialog(this);
-
-
         }
 
+        //主窗口加载函数
         private void MainForm_Load(object sender, EventArgs e)
         {
             IWorkspaceFactory worFact = new FileGDBWorkspaceFactory();
@@ -61,9 +65,6 @@ namespace MinshanAE
             IWorkspace workspace = worFact.OpenFromFile(filePath, 0);
             IFeatureWorkspace featureWorkspace = (IFeatureWorkspace)workspace.WorkspaceFactory.OpenFromFile(filePath, axMapControl1.hWnd);
 
-
-            
-            
             //添加植被覆盖a
             IFeatureLayer featureLayer2 = new FeatureLayer();
             featureLayer2.Name = "植被覆盖a";
@@ -90,7 +91,7 @@ namespace MinshanAE
             featureLayer1.Visible = true;
             featureLayer1.FeatureClass = featureWorkspace.OpenFeatureClass("交通");
             axMapControl1.Map.AddLayer((ILayer)featureLayer1);
-            
+
             //生成专题图
             ITable pTable;
             int fieldNumber;
@@ -160,6 +161,37 @@ namespace MinshanAE
             axMapControl1.ActiveView.Refresh();
             axTOCControl1.SetBuddyControl(axMapControl1.Object);
             axTOCControl1.Refresh();
+        }
+
+        //关于对话框
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
+
+        //显示、隐藏水系图层标注
+        private void WaterCB_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //显示、隐藏交通图层标注
+        private void TrafficCB_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //显示、隐藏居民地图层标注
+        private void ResidentCB_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //显示、隐藏植被覆盖图层标注
+        private void TypeCB_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
