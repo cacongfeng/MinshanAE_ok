@@ -364,5 +364,11 @@ namespace MinshanAE
             }
             this.dataGridView1.DataSource = pTable;
         }/*LoadResidentAttTable*/
+
+        private void StatisticToolStripButton_Click(object sender, EventArgs e)
+        {
+            StatisticForm SForm = new StatisticForm();
+            SForm.ShowDialog();
+        }
     }
 }
