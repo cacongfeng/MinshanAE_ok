@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="textBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>
+   岷山景观地理信息系统主要包括岷山景观7个县的基础地理信息和相关的自然、社会、行政信息。岷山地区土地利用类型有森林、草地、河流、耕地、居民点、冰川、裸地等7种类型。植被类型有常绿阔叶林、落叶阔叶林、针阔混交林、针叶林、 灌丛、草甸、流石滩植被、农业植被共8个类型。综合岷山地区土地覆盖和植被类型特征，岷山地区的景观要素可以分为常绿阔叶林、落叶落叶林、针阔混交林、针叶林、 灌丛、草甸、流石滩植被、冰雪、河流、耕地、居民点、裸地共12个类型。
+   本系统针对岷山地区基础地理信息状况，查询岷山地区植被覆盖情况、水系、交通以及居民地信息，为应用决策分析者提供决策依据</value>
+  </data>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

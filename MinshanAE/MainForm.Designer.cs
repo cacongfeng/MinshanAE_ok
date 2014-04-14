@@ -50,11 +50,11 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.WaterCB = new System.Windows.Forms.CheckBox();
-            this.TrafficCB = new System.Windows.Forms.CheckBox();
-            this.ResidentCB = new System.Windows.Forms.CheckBox();
             this.TypeCB = new System.Windows.Forms.CheckBox();
+            this.ResidentCB = new System.Windows.Forms.CheckBox();
+            this.TrafficCB = new System.Windows.Forms.CheckBox();
+            this.WaterCB = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -91,7 +91,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(530, 389);
+            this.tabControl1.Size = new System.Drawing.Size(611, 389);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -100,7 +100,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(522, 363);
+            this.tabPage1.Size = new System.Drawing.Size(603, 363);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "地图";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.axMapControl1.Location = new System.Drawing.Point(3, 3);
             this.axMapControl1.Name = "axMapControl1";
             this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(516, 357);
+            this.axMapControl1.Size = new System.Drawing.Size(597, 357);
             this.axMapControl1.TabIndex = 0;
             // 
             // tabPage2
@@ -265,7 +265,7 @@
             this.axTOCControl1.Location = new System.Drawing.Point(0, 0);
             this.axTOCControl1.Name = "axTOCControl1";
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(219, 241);
+            this.axTOCControl1.Size = new System.Drawing.Size(138, 241);
             this.axTOCControl1.TabIndex = 1;
             // 
             // groupBox1
@@ -278,42 +278,21 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(0, 241);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(219, 148);
+            this.groupBox1.Size = new System.Drawing.Size(138, 148);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "标注显示";
             // 
-            // panel1
+            // TypeCB
             // 
-            this.panel1.Controls.Add(this.axTOCControl1);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 389);
-            this.panel1.TabIndex = 8;
-            // 
-            // WaterCB
-            // 
-            this.WaterCB.AutoSize = true;
-            this.WaterCB.Location = new System.Drawing.Point(22, 29);
-            this.WaterCB.Name = "WaterCB";
-            this.WaterCB.Size = new System.Drawing.Size(48, 16);
-            this.WaterCB.TabIndex = 0;
-            this.WaterCB.Text = "水系";
-            this.WaterCB.UseVisualStyleBackColor = true;
-            this.WaterCB.CheckedChanged += new System.EventHandler(this.WaterCB_CheckedChanged);
-            // 
-            // TrafficCB
-            // 
-            this.TrafficCB.AutoSize = true;
-            this.TrafficCB.Location = new System.Drawing.Point(22, 51);
-            this.TrafficCB.Name = "TrafficCB";
-            this.TrafficCB.Size = new System.Drawing.Size(48, 16);
-            this.TrafficCB.TabIndex = 0;
-            this.TrafficCB.Text = "交通";
-            this.TrafficCB.UseVisualStyleBackColor = true;
-            this.TrafficCB.CheckedChanged += new System.EventHandler(this.TrafficCB_CheckedChanged);
+            this.TypeCB.AutoSize = true;
+            this.TypeCB.Location = new System.Drawing.Point(22, 95);
+            this.TypeCB.Name = "TypeCB";
+            this.TypeCB.Size = new System.Drawing.Size(72, 16);
+            this.TypeCB.TabIndex = 0;
+            this.TypeCB.Text = "植被覆盖";
+            this.TypeCB.UseVisualStyleBackColor = true;
+            this.TypeCB.CheckedChanged += new System.EventHandler(this.TypeCB_CheckedChanged);
             // 
             // ResidentCB
             // 
@@ -326,16 +305,37 @@
             this.ResidentCB.UseVisualStyleBackColor = true;
             this.ResidentCB.CheckedChanged += new System.EventHandler(this.ResidentCB_CheckedChanged);
             // 
-            // TypeCB
+            // TrafficCB
             // 
-            this.TypeCB.AutoSize = true;
-            this.TypeCB.Location = new System.Drawing.Point(22, 95);
-            this.TypeCB.Name = "TypeCB";
-            this.TypeCB.Size = new System.Drawing.Size(72, 16);
-            this.TypeCB.TabIndex = 0;
-            this.TypeCB.Text = "植被覆盖";
-            this.TypeCB.UseVisualStyleBackColor = true;
-            this.TypeCB.CheckedChanged += new System.EventHandler(this.TypeCB_CheckedChanged);
+            this.TrafficCB.AutoSize = true;
+            this.TrafficCB.Location = new System.Drawing.Point(22, 51);
+            this.TrafficCB.Name = "TrafficCB";
+            this.TrafficCB.Size = new System.Drawing.Size(48, 16);
+            this.TrafficCB.TabIndex = 0;
+            this.TrafficCB.Text = "交通";
+            this.TrafficCB.UseVisualStyleBackColor = true;
+            this.TrafficCB.CheckedChanged += new System.EventHandler(this.TrafficCB_CheckedChanged);
+            // 
+            // WaterCB
+            // 
+            this.WaterCB.AutoSize = true;
+            this.WaterCB.Location = new System.Drawing.Point(22, 29);
+            this.WaterCB.Name = "WaterCB";
+            this.WaterCB.Size = new System.Drawing.Size(48, 16);
+            this.WaterCB.TabIndex = 0;
+            this.WaterCB.Text = "水系";
+            this.WaterCB.UseVisualStyleBackColor = true;
+            this.WaterCB.CheckedChanged += new System.EventHandler(this.WaterCB_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.axTOCControl1);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(138, 389);
+            this.panel1.TabIndex = 8;
             // 
             // splitContainer1
             // 
@@ -351,7 +351,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(753, 389);
-            this.splitContainer1.SplitterDistance = 219;
+            this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
             // 
             // MainForm
