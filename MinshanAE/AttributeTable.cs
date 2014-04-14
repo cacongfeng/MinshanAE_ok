@@ -24,53 +24,7 @@ namespace MinshanAE
             m_attForm = attForm;
         }
 
-        /// <summary>
-        /// 根据图层的名称获取相应的图层
-        /// </summary>
-        /// <param name="strLyrName">图层名称字符串</param>
-        /// <returns>ILayer</returns>
-        private ILayer GetLayerByName(string strLyrName)
-        {
-            ILayer pLayer = null;
-            bool bFindLayer = false; ;
-            for (int i = 0; i < m_mapControl.Map.LayerCount; i++)
-            {
-                pLayer = m_mapControl.Map.get_Layer(i);
-                if (pLayer is IGroupLayer || pLayer is ICompositeLayer)
-                {
-                    ICompositeLayer pComLyr = pLayer as ICompositeLayer;
-                    for (int j = 0; j < pComLyr.Count; j++)
-                    {
-                        pLayer = pComLyr.get_Layer(j);
-                        if (pLayer.Name.Equals(strLyrName))
-                        {
-                            bFindLayer = true;
-                            break;
-                        }
-                        else
-                        {
-                            pLayer = null;
-                        }
-                    }
-                }
-                else
-                {
-                    if (pLayer.Name == strLyrName)
-                    {
-                        bFindLayer = true;
-                    }
-                    else
-                    {
-                        pLayer = null;
-                    }
-                }
-                if (bFindLayer)
-                {
-                    break;
-                }
-            }
-            return pLayer;
-        }
+
 
         /// <summary>
         /// 加载相应的属性表，由于需要对不同文件的属性表进行字段封装，因此每个属性表单独加载
@@ -106,7 +60,7 @@ namespace MinshanAE
         /// </summary>
         private void LoadTypeAttTable()
         {
-            ILayer pLayer = GetLayerByName("植被覆盖a");
+            ILayer pLayer = UsefulFunctions.GetLayerByName(m_mapControl, "植被覆盖a");
             if (pLayer == null)
             {
                 MessageBox.Show("没有植被覆盖图层，属性表将为空！");
@@ -181,7 +135,7 @@ namespace MinshanAE
         /// </summary>
         private void LoadWaterAttTable()
         {
-            ILayer pLayer = GetLayerByName("水系");
+            ILayer pLayer = UsefulFunctions.GetLayerByName(m_mapControl, "水系");
             if (pLayer == null)
             {
                 MessageBox.Show("没有水系图层，属性表将为空！");
@@ -244,7 +198,7 @@ namespace MinshanAE
         /// </summary>
         private void LoadTrafficAttTable()
         {
-            ILayer pLayer = GetLayerByName("交通");
+            ILayer pLayer = UsefulFunctions.GetLayerByName(m_mapControl, "交通");
             if (pLayer == null)
             {
                 MessageBox.Show("没有交通图层，属性表将为空！");
@@ -307,7 +261,7 @@ namespace MinshanAE
         /// </summary>
         private void LoadResidentAttTable()
         {
-            ILayer pLayer = GetLayerByName("居民地");
+            ILayer pLayer = UsefulFunctions.GetLayerByName(m_mapControl, "居民地");
             if (pLayer == null)
             {
                 MessageBox.Show("没有居民地图层，属性表将为空！");

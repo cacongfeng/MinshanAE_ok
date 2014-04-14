@@ -19,6 +19,8 @@ using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.DataSourcesGDB;
 
+using stdole;
+
 namespace MinshanAE
 {
     public partial class MainForm : Form
@@ -74,25 +76,77 @@ namespace MinshanAE
         //显示、隐藏水系图层标注
         private void WaterCB_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (WaterCB.Checked==true)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
+                MainFormFunction.AddLable(axMapControl1, layer, "NAME");
+            }
+            if (WaterCB.Checked == false)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
+                MainFormFunction.DeleteLabel(axMapControl1, Layer, "NAME");
+            }
+            
         }
 
         //显示、隐藏交通图层标注
         private void TrafficCB_CheckedChanged(object sender, EventArgs e)
         {
+            if (WaterCB.Checked == true)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
+                MainFormFunction.AddLable(axMapControl1, layer, "CODE");
+            }
+            if (WaterCB.Checked == false)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
+                MainFormFunction.DeleteLabel(axMapControl1, Layer, "CODE");
+            }
 
         }
 
         //显示、隐藏居民地图层标注
         private void ResidentCB_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (WaterCB.Checked == true)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
+                MainFormFunction.AddLable(axMapControl1, layer, "RNAME");
+            }
+            if (WaterCB.Checked == false)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
+                MainFormFunction.DeleteLabel(axMapControl1, Layer, "RNAME");
+            }
         }
 
         //显示、隐藏植被覆盖图层标注
         private void TypeCB_CheckedChanged(object sender, EventArgs e)
         {
+            if (WaterCB.Checked == true)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
+                MainFormFunction.AddLable(axMapControl1, layer, "NAME1");
+            }
+            if (WaterCB.Checked == false)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
+                MainFormFunction.DeleteLabel(axMapControl1, Layer, "NAME1");
+            }
+        }
 
+        private void RegionCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (WaterCB.Checked == true)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
+                MainFormFunction.AddLable(axMapControl1, layer, "NAME");
+            }
+            if (WaterCB.Checked == false)
+            {
+                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
+                MainFormFunction.DeleteLabel(axMapControl1, Layer, "NAME");
+            }
         }
     }
 }

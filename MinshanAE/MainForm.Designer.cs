@@ -56,6 +56,7 @@
             this.WaterCB = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.RegionCB = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -121,7 +122,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(522, 363);
+            this.tabPage2.Size = new System.Drawing.Size(603, 363);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "打印";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -141,7 +142,7 @@
             this.axPageLayoutControl1.Location = new System.Drawing.Point(3, 3);
             this.axPageLayoutControl1.Name = "axPageLayoutControl1";
             this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
-            this.axPageLayoutControl1.Size = new System.Drawing.Size(516, 357);
+            this.axPageLayoutControl1.Size = new System.Drawing.Size(597, 357);
             this.axPageLayoutControl1.TabIndex = 0;
             // 
             // menuStrip1
@@ -271,6 +272,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.RegionCB);
             this.groupBox1.Controls.Add(this.TypeCB);
             this.groupBox1.Controls.Add(this.ResidentCB);
             this.groupBox1.Controls.Add(this.TrafficCB);
@@ -354,6 +356,17 @@
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
             // 
+            // RegionCB
+            // 
+            this.RegionCB.AutoSize = true;
+            this.RegionCB.Location = new System.Drawing.Point(22, 117);
+            this.RegionCB.Name = "RegionCB";
+            this.RegionCB.Size = new System.Drawing.Size(60, 16);
+            this.RegionCB.TabIndex = 0;
+            this.RegionCB.Text = "行政区";
+            this.RegionCB.UseVisualStyleBackColor = true;
+            this.RegionCB.CheckedChanged += new System.EventHandler(this.RegionCB_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -421,6 +434,7 @@
         private System.Windows.Forms.CheckBox WaterCB;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.CheckBox RegionCB;
     }
 }
 
