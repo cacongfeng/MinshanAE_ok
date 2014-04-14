@@ -42,9 +42,6 @@
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
             this.AttTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WaterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,13 +52,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
-
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-
-            this.splitter1 = new System.Windows.Forms.Splitter();
-
 
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
@@ -157,16 +147,10 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-
             this.FileToolStripMenuItem,
             this.ToolToolStripMenuItem,
             this.AttTableToolStripMenuItem,
             this.AboutToolStripMenuItem});
-
-            this.文件ToolStripMenuItem,
-            this.工具ToolStripMenuItem,
-            this.AttTableToolStripMenuItem,
-            this.关于ToolStripMenuItem});
 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -185,18 +169,6 @@
             this.ToolToolStripMenuItem.Name = "ToolToolStripMenuItem";
             this.ToolToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.ToolToolStripMenuItem.Text = "工具";
-            // 
-            // 文件ToolStripMenuItem
-            // 
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // 工具ToolStripMenuItem
-            // 
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.工具ToolStripMenuItem.Text = "工具";
             // 
             // AttTableToolStripMenuItem
             // 
@@ -242,17 +214,6 @@
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.AboutToolStripMenuItem.Text = "关于";
-            // 属性查询ToolStripMenuItem
-            // 
-            this.属性查询ToolStripMenuItem.Name = "属性查询ToolStripMenuItem";
-            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.属性查询ToolStripMenuItem.Text = "属性查询";
-            // 
-            // 关于ToolStripMenuItem
-            // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.关于ToolStripMenuItem.Text = "关于";
             // 
             // comboBox1
             // 
@@ -341,17 +302,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AttTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
-
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AttTableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
-
         private System.Windows.Forms.ToolStripMenuItem TypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WaterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ResidentToolStripMenuItem;
