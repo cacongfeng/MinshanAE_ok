@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Geodatabase;
 
 namespace MinshanAE
 {
@@ -55,6 +56,25 @@ namespace MinshanAE
                 }
             }
             return pLayer;
+        }
+
+        /// <summary>
+        /// 根据类型高亮显示选择类型
+        /// </summary>
+        /// <param name="Type">类型</param>
+        public static void SelectFeatures(AxMapControl m_mapControl,string Type)
+        {
+            ILayer layer=GetLayerByName(m_mapControl,"植被覆盖a");
+            IFeatureLayer pFLayer=layer as IFeatureLayer;
+            IQueryFilter pQueryFilter = new QueryFilterClass();
+            pQueryFilter.WhereClause = "NAME1="+"'"+Type+"'";
+            IFeatureSelection pFeatureSelection = pFLayer as IFeatureSelection;
+
+            int iSelectedFeatureCount = pFeatureSelection.SelectionSet.Count;
+            esriSelectionResultEnum selectMethod = esriSelectionResultEnum.esriSelectionResultNew;
+            pFeatureSelection.SelectFeatures(pQueryFilter, selectMethod, false);
+
+            m_mapControl.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeoSelection, null, null);
         }
     }
 }

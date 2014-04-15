@@ -50,13 +50,13 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RegionCB = new System.Windows.Forms.CheckBox();
             this.TypeCB = new System.Windows.Forms.CheckBox();
             this.ResidentCB = new System.Windows.Forms.CheckBox();
             this.TrafficCB = new System.Windows.Forms.CheckBox();
             this.WaterCB = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.RegionCB = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -223,23 +223,21 @@
             this.comboBox1.ForeColor = System.Drawing.Color.Black;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "常绿阔叶林",
-            "落叶落叶林",
-            "针阔混交林",
+            "灌木林",
+            "高覆盖草地",
             "针叶林",
-            "灌丛",
-            "草甸",
-            "流石滩植被",
-            "冰雪",
-            "河流",
-            "耕地",
-            "居民点",
-            "裸地"});
+            "农业用地",
+            "中覆盖草地",
+            "混交林",
+            "低覆盖草地",
+            "阔叶林",
+            "其他用地"});
             this.comboBox1.Location = new System.Drawing.Point(631, 30);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.Text = "选择类型";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -284,6 +282,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "标注显示";
+            // 
+            // RegionCB
+            // 
+            this.RegionCB.AutoSize = true;
+            this.RegionCB.Location = new System.Drawing.Point(22, 117);
+            this.RegionCB.Name = "RegionCB";
+            this.RegionCB.Size = new System.Drawing.Size(60, 16);
+            this.RegionCB.TabIndex = 0;
+            this.RegionCB.Text = "行政区";
+            this.RegionCB.UseVisualStyleBackColor = true;
+            this.RegionCB.CheckedChanged += new System.EventHandler(this.RegionCB_CheckedChanged);
             // 
             // TypeCB
             // 
@@ -355,17 +364,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(753, 389);
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
-            // 
-            // RegionCB
-            // 
-            this.RegionCB.AutoSize = true;
-            this.RegionCB.Location = new System.Drawing.Point(22, 117);
-            this.RegionCB.Name = "RegionCB";
-            this.RegionCB.Size = new System.Drawing.Size(60, 16);
-            this.RegionCB.TabIndex = 0;
-            this.RegionCB.Text = "行政区";
-            this.RegionCB.UseVisualStyleBackColor = true;
-            this.RegionCB.CheckedChanged += new System.EventHandler(this.RegionCB_CheckedChanged);
             // 
             // MainForm
             // 

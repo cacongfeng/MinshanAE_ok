@@ -108,7 +108,7 @@ namespace MinshanAE
         {
             ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
             if (ResidentCB.Checked == true)
-            { 
+            {
                 MainFormFunction.AddLable(axMapControl1, layer, "RNAME");
             }
             if (ResidentCB.Checked == false)
@@ -143,6 +143,12 @@ namespace MinshanAE
             {
                 MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ItemSel = comboBox1.Text;
+            UsefulFunctions.SelectFeatures(axMapControl1,ItemSel);
         }
     }
 }
