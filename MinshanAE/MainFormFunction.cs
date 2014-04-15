@@ -160,7 +160,7 @@ namespace MinshanAE
                 Name = "宋体",
                 Size = 5
             } as IFontDisp;
-                        ITextSymbol pTextSymbol = new TextSymbolClass()
+            ITextSymbol pTextSymbol = new TextSymbolClass()
             {
                 Color = pColor,
                 Font = pFont,
@@ -200,5 +200,37 @@ namespace MinshanAE
             (axMapControl.Map as IActiveView).PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, axMapControl.Extent);
         }
 
+        public static void DeleteLabel(AxMapControl axMapControl, ILayer layer)
+        {
+            IGraphicsContainer pGraContainer = axMapControl.Map as IGraphicsContainer;
+            //遍历要标注的要素
+            IFeatureLayer pFeaLayer = layer as IFeatureLayer;
+            IFeatureClass pFeaClass = pFeaLayer.FeatureClass;
+            IFeatureCursor pFeatCur = pFeaClass.Search(null, false);
+            IFeature pFeature = pFeatCur.NextFeature();
+            IEnvelope pEnv = null;
+            
+            IElement pEle = null;
+            while (pFeature != null)
+            {
+                //使用地理对象的中心作为标注的位置
+                pEnv = pFeature.Extent;
+                IPoint pPoint = new PointClass();
+                pPoint.PutCoords(pEnv.XMin + pEnv.Width * 0.5, pEnv.YMin + pEnv.Height * 0.5);
+
+                pEle = pGraContainer.LocateElements(pPoint,10) as IElement;
+                //pEle.Geometry = pPoint;
+                //添加标注
+                if (pEle != null)
+                {
+                    pGraContainer.DeleteElement(pEle);
+                    pGraContainer.UpdateElement(pEle);
+                }
+                
+                pFeature = pFeatCur.NextFeature();
+            }
+            (axMapControl.Map as IActiveView).PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, axMapControl.Extent);
+            //axMapControl.Refresh();
+        }
     }
 }

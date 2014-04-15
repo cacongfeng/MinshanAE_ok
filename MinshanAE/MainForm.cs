@@ -84,7 +84,7 @@ namespace MinshanAE
             if (WaterCB.Checked == false)
             {
                 ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
-                MainFormFunction.DeleteLabel(axMapControl1, Layer, "NAME");
+                MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
             
         }
@@ -100,7 +100,7 @@ namespace MinshanAE
             if (WaterCB.Checked == false)
             {
                 ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
-                MainFormFunction.DeleteLabel(axMapControl1, Layer, "CODE");
+                MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
 
         }
@@ -116,7 +116,7 @@ namespace MinshanAE
             if (WaterCB.Checked == false)
             {
                 ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
-                MainFormFunction.DeleteLabel(axMapControl1, Layer, "RNAME");
+                MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
         }
 
@@ -131,7 +131,7 @@ namespace MinshanAE
             if (WaterCB.Checked == false)
             {
                 ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
-                MainFormFunction.DeleteLabel(axMapControl1, Layer, "NAME1");
+                MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
         }
 
@@ -145,7 +145,7 @@ namespace MinshanAE
             if (WaterCB.Checked == false)
             {
                 ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
-                MainFormFunction.DeleteLabel(axMapControl1, Layer, "NAME");
+                MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
         }
     }
