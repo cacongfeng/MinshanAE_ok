@@ -193,32 +193,32 @@ namespace MinshanAE
        //使用TextElment绘制标注, fieldName为要绘制的属性
         public static void AddLable(AxMapControl axMapControl, ILayer layer, string fieldName)
         {
-            IRgbColor pColor = null;
-            IRgbColor WaterColor = new RgbColorClass()
+            IRgbColor LabelColor = null;
+            IRgbColor WaterLabelColor = new RgbColorClass()
             {
                 Red = 0,
                 Blue = 255,
                 Green = 0
             };
-            IRgbColor RoadColor = new RgbColorClass()
+            IRgbColor RoadLabelColor = new RgbColorClass()
             {
                 Red = 255,
                 Blue = 255,
                 Green = 255
             };
-            IRgbColor InhabitColor = new RgbColorClass()
+            IRgbColor InhabitLabelColor = new RgbColorClass()
             {
                 Red = 0,
                 Blue = 255,
                 Green = 255
             };
-            IRgbColor GreenColor = new RgbColorClass()
+            IRgbColor GreenLabelColor = new RgbColorClass()
             {
                 Red = 0,
                 Blue = 0,
                 Green = 255
             };
-            IRgbColor DistrictColor = new RgbColorClass()
+            IRgbColor DistrictLabelColor = new RgbColorClass()
             {
                 Red = 255,
                 Blue = 0,
@@ -228,30 +228,28 @@ namespace MinshanAE
             IFontDisp pFont = new StdFont()
             {
                 Name = "宋体",
+                Bold=true,
                 Size = 5
             } as IFontDisp;
             
             if (layer.Name == "水系")
-                pColor = WaterColor;
+                LabelColor = WaterLabelColor;
             if (layer.Name == "交通")
-                pColor = RoadColor;
+                LabelColor = RoadLabelColor;
             if (layer.Name == "居民地")
-                pColor = InhabitColor;
+                LabelColor = InhabitLabelColor;
             if (layer.Name == "植被覆盖a")
-                pColor = GreenColor;
+                LabelColor = GreenLabelColor;
             if (layer.Name == "行政区")
-                pColor = DistrictColor;
+                LabelColor = DistrictLabelColor;
             ITextSymbol pTextSymbol = new TextSymbolClass()
             {
 
-                Color = pColor,
+                Color = LabelColor,
                 Font = pFont,
                 Size = 11
             };
-            
-
             IGraphicsContainer pGraContainer = axMapControl.Map as IGraphicsContainer;
-
             //遍历要标注的要素
             IFeatureLayer pFeaLayer = layer as IFeatureLayer;
             IFeatureClass pFeaClass = pFeaLayer.FeatureClass;
@@ -279,8 +277,10 @@ namespace MinshanAE
                 //添加标注
                 pGraContainer.AddElement(pEle, 0);
                 pFeature = pFeatCur.NextFeature();
+                
             }
             (axMapControl.Map as IActiveView).PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, axMapControl.Extent);
+            
         }
 
         public static void DeleteLabel(AxMapControl axMapControl, ILayer layer)
