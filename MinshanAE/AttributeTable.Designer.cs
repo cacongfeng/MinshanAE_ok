@@ -43,10 +43,10 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 457);
+            this.dataGridView1.Size = new System.Drawing.Size(738, 432);
             this.dataGridView1.TabIndex = 0;
             // 
             // toolStrip1
@@ -73,8 +73,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 457);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.toolStrip1);
             this.Name = "AttributeTable";
             this.Text = "AttributeTable";
             this.Load += new System.EventHandler(this.AttributeTable_Load);

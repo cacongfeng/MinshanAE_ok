@@ -34,7 +34,7 @@ namespace MinshanAE
         //植被覆盖类型属性查询
         private void TypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AttributeTable attTable = new AttributeTable(this.axMapControl1,"植被覆盖类型");
+            AttributeTable attTable = new AttributeTable(this.axMapControl1, "植被覆盖类型");
             attTable.ShowDialog(this);
         }
 
@@ -76,30 +76,28 @@ namespace MinshanAE
         //显示、隐藏水系图层标注
         private void WaterCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (WaterCB.Checked==true)
+            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
+            if (WaterCB.Checked == true)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
                 MainFormFunction.AddLable(axMapControl1, layer, "NAME");
             }
             if (WaterCB.Checked == false)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
                 MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
-            
+
         }
 
         //显示、隐藏交通图层标注
         private void TrafficCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (WaterCB.Checked == true)
+            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
+            if (TrafficCB.Checked == true)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
                 MainFormFunction.AddLable(axMapControl1, layer, "CODE");
             }
-            if (WaterCB.Checked == false)
+            if (TrafficCB.Checked == false)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
                 MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
 
@@ -108,14 +106,13 @@ namespace MinshanAE
         //显示、隐藏居民地图层标注
         private void ResidentCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (WaterCB.Checked == true)
-            {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
+            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
+            if (ResidentCB.Checked == true)
+            { 
                 MainFormFunction.AddLable(axMapControl1, layer, "RNAME");
             }
-            if (WaterCB.Checked == false)
+            if (ResidentCB.Checked == false)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
                 MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
         }
@@ -123,28 +120,27 @@ namespace MinshanAE
         //显示、隐藏植被覆盖图层标注
         private void TypeCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (WaterCB.Checked == true)
+            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
+            if (TypeCB.Checked == true)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
                 MainFormFunction.AddLable(axMapControl1, layer, "NAME1");
             }
-            if (WaterCB.Checked == false)
+            if (TypeCB.Checked == false)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
                 MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
         }
 
+        //显示、隐藏行政区图层标注
         private void RegionCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (WaterCB.Checked == true)
+            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
+            if (RegionCB.Checked == true)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
-                MainFormFunction.AddLable(axMapControl1, layer, "NAME");
+                MainFormFunction.AddLable(axMapControl1, layer, "FIRST_NAME");
             }
-            if (WaterCB.Checked == false)
+            if (RegionCB.Checked == false)
             {
-                ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
                 MainFormFunction.DeleteLabel(axMapControl1, layer);
             }
         }
