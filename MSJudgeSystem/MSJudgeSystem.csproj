@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9155639A-52BE-4A6F-98AD-39810973DF15}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSJudgeSystem</RootNamespace>
+    <AssemblyName>MSJudgeSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SpeciesClass\Agkistrodon_Strauchii.cs" />
+    <Compile Include="SpeciesClass\Andrias_Davidianus.cs" />
+    <Compile Include="SpeciesClass\AreaEnum.cs" />
+    <Compile Include="SpeciesClass\Batrachuperus.cs" />
+    <Compile Include="SpeciesClass\Big_Panda.cs" />
+    <Compile Include="SpeciesClass\Bonasia.cs" />
+    <Compile Include="SpeciesClass\Crossoptilon_Auritum.cs" />
+    <Compile Include="SpeciesClass\Cupressus_Chengiana.cs" />
+    <Compile Include="SpeciesClass\Emmenopterys_Henryi.cs" />
+    <Compile Include="SpeciesClass\Golden_Monkey.cs" />
+    <Compile Include="SpeciesClass\Jung, Yoontae.cs" />
+    <Compile Include="SpeciesClass\Kim, Hyunsoo.cs" />
+    <Compile Include="SpeciesClass\Kingdonia_Uniflora.cs" />
+    <Compile Include="SpeciesClass\Larix_Mastersiana.cs" />
+    <Compile Include="SpeciesClass\Lhuysii.cs" />
+    <Compile Include="SpeciesClass\Little_Panda.cs" />
+    <Compile Include="SpeciesClass\Musk_Deer.cs" />
+    <Compile Include="SpeciesClass\Paeonia_Szechuanica.cs" />
+    <Compile Include="SpeciesClass\Panther.cs" />
+    <Compile Include="SpeciesClass\Picea_Brachytyla.cs" />
+    <Compile Include="SpeciesClass\Plant.cs" />
+    <Compile Include="SpeciesClass\PlantTypeEnum.cs" />
+    <Compile Include="SpeciesClass\Species.cs" />
+    <Compile Include="SpeciesClass\Spotted_Deer.cs" />
+    <Compile Include="SpeciesClass\Takin.cs" />
+    <Compile Include="SpeciesClass\Tetracentron_Sinense.cs" />
+    <Compile Include="SpeciesClass\Tetraogallus_Tibetanus.cs" />
+    <Compile Include="SpeciesClass\Tetraophasis.cs" />
+    <Compile Include="SpeciesClass\Torreya_Ssp.cs" />
+    <Compile Include="UI_MSJudgeSystem\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_MSJudgeSystem\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI_MSJudgeSystem\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
