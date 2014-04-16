@@ -57,6 +57,7 @@
             this.WaterCB = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.AttCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -166,6 +167,8 @@
             // 
             // ToolToolStripMenuItem
             // 
+            this.ToolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AttCalculatorToolStripMenuItem});
             this.ToolToolStripMenuItem.Name = "ToolToolStripMenuItem";
             this.ToolToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.ToolToolStripMenuItem.Text = "工具";
@@ -184,28 +187,28 @@
             // TypeToolStripMenuItem
             // 
             this.TypeToolStripMenuItem.Name = "TypeToolStripMenuItem";
-            this.TypeToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.TypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.TypeToolStripMenuItem.Text = "植被覆盖类型";
             this.TypeToolStripMenuItem.Click += new System.EventHandler(this.TypeToolStripMenuItem_Click);
             // 
             // WaterToolStripMenuItem
             // 
             this.WaterToolStripMenuItem.Name = "WaterToolStripMenuItem";
-            this.WaterToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.WaterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.WaterToolStripMenuItem.Text = "水系";
             this.WaterToolStripMenuItem.Click += new System.EventHandler(this.WaterToolStripMenuItem_Click);
             // 
             // ResidentToolStripMenuItem
             // 
             this.ResidentToolStripMenuItem.Name = "ResidentToolStripMenuItem";
-            this.ResidentToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.ResidentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ResidentToolStripMenuItem.Text = "居民地";
             this.ResidentToolStripMenuItem.Click += new System.EventHandler(this.ResidentToolStripMenuItem_Click);
             // 
             // TrafficToolStripMenuItem
             // 
             this.TrafficToolStripMenuItem.Name = "TrafficToolStripMenuItem";
-            this.TrafficToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.TrafficToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.TrafficToolStripMenuItem.Text = "交通";
             this.TrafficToolStripMenuItem.Click += new System.EventHandler(this.TrafficToolStripMenuItem_Click);
             // 
@@ -365,6 +368,13 @@
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
             // 
+            // AttCalculatorToolStripMenuItem
+            // 
+            this.AttCalculatorToolStripMenuItem.Name = "AttCalculatorToolStripMenuItem";
+            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AttCalculatorToolStripMenuItem.Text = "属性计算器";
+            this.AttCalculatorToolStripMenuItem.Click += new System.EventHandler(this.AttCalculatorToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -408,7 +418,6 @@
         private ESRI.ArcGIS.Controls.AxToolbarControl axToolbarControl1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
@@ -433,6 +442,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.CheckBox RegionCB;
+        private System.Windows.Forms.ToolStripMenuItem AttCalculatorToolStripMenuItem;
+        public ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
     }
 }
 

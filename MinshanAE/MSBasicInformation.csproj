@@ -106,6 +106,12 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AttCalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttCalculatorForm.Designer.cs">
+      <DependentUpon>AttCalculatorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AttributeTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <Compile Include="UsefulFunctions.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttCalculatorForm.resx">
+      <DependentUpon>AttCalculatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AttributeTable.resx">
       <DependentUpon>AttributeTable.cs</DependentUpon>

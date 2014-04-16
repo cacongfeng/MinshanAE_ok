@@ -150,5 +150,11 @@ namespace MinshanAE
             string ItemSel = comboBox1.Text;
             UsefulFunctions.SelectFeatures(axMapControl1,ItemSel);
         }
+
+        private void AttCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AttCalculatorForm attCalForm = new AttCalculatorForm(this);
+            attCalForm.Show(this);
+        }
     }
 }
