@@ -10,6 +10,6 @@
 //
 
 
-public class Big_Panda : Big_Panda, Species
+public class Big_Panda :  Species
 {
 }

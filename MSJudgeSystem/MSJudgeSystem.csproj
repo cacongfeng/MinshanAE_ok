@@ -56,8 +56,6 @@
     <Compile Include="SpeciesClass\Cupressus_Chengiana.cs" />
     <Compile Include="SpeciesClass\Emmenopterys_Henryi.cs" />
     <Compile Include="SpeciesClass\Golden_Monkey.cs" />
-    <Compile Include="SpeciesClass\Jung, Yoontae.cs" />
-    <Compile Include="SpeciesClass\Kim, Hyunsoo.cs" />
     <Compile Include="SpeciesClass\Kingdonia_Uniflora.cs" />
     <Compile Include="SpeciesClass\Larix_Mastersiana.cs" />
     <Compile Include="SpeciesClass\Lhuysii.cs" />

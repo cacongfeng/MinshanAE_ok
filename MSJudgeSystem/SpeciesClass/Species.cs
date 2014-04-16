@@ -10,12 +10,13 @@
 //
 
 
+
 public class Species 
 {
 	public int bestHeight = 0;
 	public int generalHeight = 0;
 	public int unsuitableHeight = 0;
-	public PlanTypeEnum bestPlantType = 0;
-	public PlanTypeEnum generalPlantType = 0;
-	private PlanTypeEnum unsuitablePlantType = 0;
+	public int bestPlantType = 0;
+	public int generalPlantType = 0;
+	private int unsuitablePlantType = 0;
 }
