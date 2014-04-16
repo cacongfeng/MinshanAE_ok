@@ -120,7 +120,7 @@ namespace MinshanAE
         //显示、隐藏植被覆盖图层标注
         private void TypeCB_CheckedChanged(object sender, EventArgs e)
         {
-            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖a");
+            ILayer layer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖");
             if (TypeCB.Checked == true)
             {
                 MainFormFunction.AddLable(axMapControl1, layer, "NAME1");

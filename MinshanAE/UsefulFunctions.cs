@@ -64,7 +64,7 @@ namespace MinshanAE
         /// <param name="Type">类型</param>
         public static void SelectFeatures(AxMapControl m_mapControl,string Type)
         {
-            ILayer layer=GetLayerByName(m_mapControl,"植被覆盖a");
+            ILayer layer=GetLayerByName(m_mapControl,"植被覆盖");
             IFeatureLayer pFLayer=layer as IFeatureLayer;
             IQueryFilter pQueryFilter = new QueryFilterClass();
             pQueryFilter.WhereClause = "NAME1="+"'"+Type+"'";
