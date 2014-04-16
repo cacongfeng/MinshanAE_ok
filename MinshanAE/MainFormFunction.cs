@@ -123,6 +123,7 @@ namespace MinshanAE
                     }
                     pSym = new SimpleFillSymbolClass();
                     pSym.Color = pNextUniqueColor;
+                    pSym.Outline = null;
                     pUniqueValueRenderer.AddValue(codeValue.ToString(), "NAME1", (ISymbol)pSym);
                     pNextRow = pCursor.NextRow();
 
@@ -227,9 +228,9 @@ namespace MinshanAE
 
             IFontDisp pFont = new StdFont()
             {
-                Name = "宋体",
+                Name = "楷体",
                 Bold=true,
-                Size = 5
+                Size = 3
             } as IFontDisp;
             
             if (layer.Name == "水系")
@@ -247,7 +248,7 @@ namespace MinshanAE
 
                 Color = LabelColor,
                 Font = pFont,
-                Size = 11
+                Size = 10
             };
             IGraphicsContainer pGraContainer = axMapControl.Map as IGraphicsContainer;
             //遍历要标注的要素
@@ -287,13 +288,14 @@ namespace MinshanAE
         {
             IGraphicsContainer pGraContainer = axMapControl.Map as IGraphicsContainer;
             pGraContainer.DeleteAllElements();
+
             ////遍历要标注的要素
             //IFeatureLayer pFeaLayer = layer as IFeatureLayer;
             //IFeatureClass pFeaClass = pFeaLayer.FeatureClass;
             //IFeatureCursor pFeatCur = pFeaClass.Search(null, false);
             //IFeature pFeature = pFeatCur.NextFeature();
             //IEnvelope pEnv = null;
-            
+
             //IElement pEle = null;
             //while (pFeature != null)
             //{
@@ -301,16 +303,18 @@ namespace MinshanAE
             //    pEnv = pFeature.Extent;
             //    IPoint pPoint = new PointClass();
             //    pPoint.PutCoords(pEnv.XMin + pEnv.Width * 0.5, pEnv.YMin + pEnv.Height * 0.5);
-
-            //    pEle = pGraContainer.LocateElements(pPoint,10) as IElement;
+                
+            //    pEle = pGraContainer.LocateElements(pPoint, 0) as IElement;
+                
             //    //pEle.Geometry = pPoint;
             //    //添加标注
             //    if (pEle != null)
             //    {
+            //        pEle.Geometry = pPoint;
             //        pGraContainer.DeleteElement(pEle);
-            //        pGraContainer.UpdateElement(pEle);
+            //        //pGraContainer.UpdateElement(pEle);
             //    }
-                
+
             //    pFeature = pFeatCur.NextFeature();
             //}
             (axMapControl.Map as IActiveView).PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, axMapControl.Extent);
