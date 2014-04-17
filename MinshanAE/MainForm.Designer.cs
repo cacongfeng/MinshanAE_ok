@@ -38,6 +38,7 @@
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.保存地图为图片SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AttCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AttTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +59,7 @@
             this.WaterCB = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -162,9 +164,18 @@
             // 
             // FileToolStripMenuItem
             // 
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.保存地图为图片SToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.FileToolStripMenuItem.Text = "文件";
+            // 
+            // 保存地图为图片SToolStripMenuItem
+            // 
+            this.保存地图为图片SToolStripMenuItem.Name = "保存地图为图片SToolStripMenuItem";
+            this.保存地图为图片SToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.保存地图为图片SToolStripMenuItem.Text = "保存地图为图片【S】";
+            this.保存地图为图片SToolStripMenuItem.Click += new System.EventHandler(this.保存地图为图片SToolStripMenuItem_Click);
             // 
             // ToolToolStripMenuItem
             // 
@@ -377,6 +388,10 @@
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.CheckFileExists = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -446,6 +461,8 @@
         private System.Windows.Forms.CheckBox RegionCB;
         private System.Windows.Forms.ToolStripMenuItem AttCalculatorToolStripMenuItem;
         public ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
+        private System.Windows.Forms.ToolStripMenuItem 保存地图为图片SToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

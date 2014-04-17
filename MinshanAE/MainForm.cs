@@ -21,6 +21,7 @@ using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.DataSourcesGDB;
 
 using stdole;
+using ESRI.ArcGIS.Output;
 
 namespace MinshanAE
 {
@@ -217,5 +218,125 @@ namespace MinshanAE
             axPageLayoutControl1.ActiveView.Refresh(); 
             copyToPageLayout(); 
         }
+
+        private void 保存地图为图片SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "JPEG(*.jpg)|*.jpg|BMP(*.BMP)|*.bmp|EMF(*.emf)|*.emf|GIF(*.gif)|*.gif|AI(*.ai)|*.ai|PDF(*.pdf)|*.pdf|PNG(*.png)|*.png|EPS(*.eps)|*.eps|SVG(*.svg)|*.svg|TIFF(*.tif)|*.tif";
+            saveFileDialog1.Title = "输出地图";
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.ShowDialog();
+
+        }
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            string fileName = saveFileDialog1.FileName;
+            int filterIndex = saveFileDialog1.FilterIndex;
+            IActiveView pActiveView = axPageLayoutControl1.ActiveView;
+            //ExportPic exportPic = new ExportPic();
+            //bool flag = exportPic.ExportMapToImage(pActiveView,fileName,filterIndex);
+
+            bool flag = ExportMapToImage(pActiveView, fileName, filterIndex);
+            saveFileDialog1.Dispose();
+            if (flag)
+            {
+                MessageBox.Show("图片输出成功！", "成功");
+            }
+            else
+            {
+                MessageBox.Show("图片输出失败，请重新生成！", "失败");
+            }
+        }
+
+
+        public bool ExportMapToImage(IActiveView pActiveView, string fileName, int filterIndex)
+        {
+            try
+            {
+                IExport pExporter = null;
+
+
+
+                switch (filterIndex)
+                {
+                    case 1:
+                        pExporter = new ExportJPEGClass();
+                        break;
+                    case 2:
+                        pExporter = new ExportBMPClass();
+                        break;
+                    case 3:
+                        pExporter = new ExportEMFClass();
+                        break;
+                    case 4:
+                        pExporter = new ExportGIFClass();
+                        break;
+                    case 5:
+                        pExporter = new ExportAIClass();
+                        break;
+                    case 6:
+                        pExporter = new ExportPDFClass();
+                        break;
+                    case 7:
+                        pExporter = new ExportPNGClass();
+                        break;
+                    case 8:
+                        pExporter = new ExportPSClass();
+                        break;
+                    case 9:
+                        pExporter = new ExportSVGClass();
+                        break;
+                    case 10:
+                        pExporter = new ExportTIFFClass();
+                        break;
+                    default:
+                        MessageBox.Show("输出格式错误");
+                        return false;
+                }
+
+
+
+                IEnvelope pEnvelope = new EnvelopeClass();
+                ITrackCancel pTrackCancel = new CancelTrackerClass();
+                tagRECT ptagRECT;
+                ptagRECT.left = 0;
+                ptagRECT.top = 0;
+                ptagRECT.right = (int)pActiveView.Extent.Width;
+                ptagRECT.bottom = (int)pActiveView.Extent.Height;
+
+
+
+                int pResolution = (int)(pActiveView.ScreenDisplay.DisplayTransformation.Resolution);
+                pEnvelope.PutCoords(ptagRECT.left, ptagRECT.bottom, ptagRECT.right, ptagRECT.top);
+
+
+
+                pExporter.Resolution = pResolution;
+                pExporter.ExportFileName = fileName;
+                pExporter.PixelBounds = pEnvelope;
+
+
+
+                pActiveView.Output(pExporter.StartExporting(), pResolution, ref ptagRECT, pActiveView.Extent, pTrackCancel);
+                pExporter.FinishExporting();
+
+
+
+                //释放资源
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(pExporter);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "输出图片", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+        }
+
+
+
+
+
+
     }
 }
