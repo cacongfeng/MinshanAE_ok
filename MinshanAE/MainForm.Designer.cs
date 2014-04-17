@@ -188,7 +188,7 @@
             // AttCalculatorToolStripMenuItem
             // 
             this.AttCalculatorToolStripMenuItem.Name = "AttCalculatorToolStripMenuItem";
-            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.AttCalculatorToolStripMenuItem.Text = "属性计算器";
             this.AttCalculatorToolStripMenuItem.Click += new System.EventHandler(this.AttCalculatorToolStripMenuItem_Click);
             // 
@@ -387,10 +387,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(753, 389);
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.CheckFileExists = true;
             // 
             // MainForm
             // 
