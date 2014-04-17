@@ -197,6 +197,9 @@ namespace MinshanAE
             }
         }
 
+       
+
+       
         private void copyToPageLayout() 
         { 
             IObjectCopy objectCopy = new ObjectCopyClass(); 
@@ -223,10 +226,9 @@ namespace MinshanAE
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.ShowDialog();
-            
 
         }
-        private void saveFileDialog1_FileOk_1(object sender, CancelEventArgs e)
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             string fileName = saveFileDialog1.FileName;
             int filterIndex = saveFileDialog1.FilterIndex;
@@ -252,6 +254,9 @@ namespace MinshanAE
             try
             {
                 IExport pExporter = null;
+
+
+
                 switch (filterIndex)
                 {
                     case 1:
@@ -288,6 +293,9 @@ namespace MinshanAE
                         MessageBox.Show("输出格式错误");
                         return false;
                 }
+
+
+
                 IEnvelope pEnvelope = new EnvelopeClass();
                 ITrackCancel pTrackCancel = new CancelTrackerClass();
                 tagRECT ptagRECT;
@@ -296,15 +304,22 @@ namespace MinshanAE
                 ptagRECT.right = (int)pActiveView.Extent.Width;
                 ptagRECT.bottom = (int)pActiveView.Extent.Height;
 
+
+
                 int pResolution = (int)(pActiveView.ScreenDisplay.DisplayTransformation.Resolution);
                 pEnvelope.PutCoords(ptagRECT.left, ptagRECT.bottom, ptagRECT.right, ptagRECT.top);
+
+
 
                 pExporter.Resolution = pResolution;
                 pExporter.ExportFileName = fileName;
                 pExporter.PixelBounds = pEnvelope;
 
+
+
                 pActiveView.Output(pExporter.StartExporting(), pResolution, ref ptagRECT, pActiveView.Extent, pTrackCancel);
                 pExporter.FinishExporting();
+
 
 
                 //释放资源
@@ -318,7 +333,10 @@ namespace MinshanAE
             }
         }
 
-        
+
+
+
+
 
     }
 }

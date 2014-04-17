@@ -390,7 +390,7 @@
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk_1);
+            this.saveFileDialog1.CheckFileExists = true;
             // 
             // MainForm
             // 
