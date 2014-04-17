@@ -156,5 +156,43 @@ namespace MinshanAE
             AttCalculatorForm attCalForm = new AttCalculatorForm(this);
             attCalForm.Show(this);
         }
+
+        private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        {
+            ILayer Waterlayer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
+            if (Waterlayer.Visible == false)
+            {
+                MainFormFunction.DeleteLabel(axMapControl1, Waterlayer);
+                WaterCB.Checked = false;
+            }
+
+            ILayer Trafficlayer = UsefulFunctions.GetLayerByName(axMapControl1, "交通");
+            if (Trafficlayer.Visible == false)
+            {
+                MainFormFunction.DeleteLabel(axMapControl1, Trafficlayer);
+                TrafficCB.Checked = false;
+            }
+
+            ILayer Residentlayer = UsefulFunctions.GetLayerByName(axMapControl1, "居民地");
+            if (Residentlayer.Visible == false)
+            {
+                MainFormFunction.DeleteLabel(axMapControl1, Residentlayer);
+                ResidentCB.Checked = false;
+            }
+
+            ILayer Typelayer = UsefulFunctions.GetLayerByName(axMapControl1, "植被覆盖");
+            if (Typelayer.Visible == false)
+            {
+                MainFormFunction.DeleteLabel(axMapControl1, Typelayer);
+                TypeCB.Checked = false;
+            }
+
+            ILayer Regionlayer = UsefulFunctions.GetLayerByName(axMapControl1, "行政区");
+            if (Regionlayer.Visible == false)
+            {
+                MainFormFunction.DeleteLabel(axMapControl1, Regionlayer);
+                RegionCB.Checked = false;
+            }
+        }
     }
 }

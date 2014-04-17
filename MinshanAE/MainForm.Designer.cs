@@ -39,6 +39,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AttCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AttTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WaterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,6 @@
             this.WaterCB = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.AttCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -173,6 +173,13 @@
             this.ToolToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.ToolToolStripMenuItem.Text = "工具";
             // 
+            // AttCalculatorToolStripMenuItem
+            // 
+            this.AttCalculatorToolStripMenuItem.Name = "AttCalculatorToolStripMenuItem";
+            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.AttCalculatorToolStripMenuItem.Text = "属性计算器";
+            this.AttCalculatorToolStripMenuItem.Click += new System.EventHandler(this.AttCalculatorToolStripMenuItem_Click);
+            // 
             // AttTableToolStripMenuItem
             // 
             this.AttTableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -187,28 +194,28 @@
             // TypeToolStripMenuItem
             // 
             this.TypeToolStripMenuItem.Name = "TypeToolStripMenuItem";
-            this.TypeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TypeToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.TypeToolStripMenuItem.Text = "植被覆盖类型";
             this.TypeToolStripMenuItem.Click += new System.EventHandler(this.TypeToolStripMenuItem_Click);
             // 
             // WaterToolStripMenuItem
             // 
             this.WaterToolStripMenuItem.Name = "WaterToolStripMenuItem";
-            this.WaterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.WaterToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.WaterToolStripMenuItem.Text = "水系";
             this.WaterToolStripMenuItem.Click += new System.EventHandler(this.WaterToolStripMenuItem_Click);
             // 
             // ResidentToolStripMenuItem
             // 
             this.ResidentToolStripMenuItem.Name = "ResidentToolStripMenuItem";
-            this.ResidentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ResidentToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ResidentToolStripMenuItem.Text = "居民地";
             this.ResidentToolStripMenuItem.Click += new System.EventHandler(this.ResidentToolStripMenuItem_Click);
             // 
             // TrafficToolStripMenuItem
             // 
             this.TrafficToolStripMenuItem.Name = "TrafficToolStripMenuItem";
-            this.TrafficToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TrafficToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.TrafficToolStripMenuItem.Text = "交通";
             this.TrafficToolStripMenuItem.Click += new System.EventHandler(this.TrafficToolStripMenuItem_Click);
             // 
@@ -269,6 +276,7 @@
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
             this.axTOCControl1.Size = new System.Drawing.Size(138, 241);
             this.axTOCControl1.TabIndex = 1;
+            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
             // 
             // groupBox1
             // 
@@ -367,13 +375,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(753, 389);
             this.splitContainer1.SplitterDistance = 138;
             this.splitContainer1.TabIndex = 9;
-            // 
-            // AttCalculatorToolStripMenuItem
-            // 
-            this.AttCalculatorToolStripMenuItem.Name = "AttCalculatorToolStripMenuItem";
-            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.AttCalculatorToolStripMenuItem.Text = "属性计算器";
-            this.AttCalculatorToolStripMenuItem.Click += new System.EventHandler(this.AttCalculatorToolStripMenuItem_Click);
             // 
             // MainForm
             // 
