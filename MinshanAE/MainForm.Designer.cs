@@ -38,7 +38,7 @@
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存地图为图片SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveToImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AttCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AttTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -165,17 +165,17 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.保存地图为图片SToolStripMenuItem});
+            this.SaveToImageToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.FileToolStripMenuItem.Text = "文件";
             // 
-            // 保存地图为图片SToolStripMenuItem
+            // SaveToImageToolStripMenuItem
             // 
-            this.保存地图为图片SToolStripMenuItem.Name = "保存地图为图片SToolStripMenuItem";
-            this.保存地图为图片SToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.保存地图为图片SToolStripMenuItem.Text = "保存地图为图片【S】";
-            this.保存地图为图片SToolStripMenuItem.Click += new System.EventHandler(this.保存地图为图片SToolStripMenuItem_Click);
+            this.SaveToImageToolStripMenuItem.Name = "SaveToImageToolStripMenuItem";
+            this.SaveToImageToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.SaveToImageToolStripMenuItem.Text = "保存地图为图片【S】";
+            this.SaveToImageToolStripMenuItem.Click += new System.EventHandler(this.SaveToImageToolStripMenuItem_Click);
             // 
             // ToolToolStripMenuItem
             // 
@@ -188,7 +188,7 @@
             // AttCalculatorToolStripMenuItem
             // 
             this.AttCalculatorToolStripMenuItem.Name = "AttCalculatorToolStripMenuItem";
-            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.AttCalculatorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.AttCalculatorToolStripMenuItem.Text = "属性计算器";
             this.AttCalculatorToolStripMenuItem.Click += new System.EventHandler(this.AttCalculatorToolStripMenuItem_Click);
             // 
@@ -461,7 +461,7 @@
         private System.Windows.Forms.CheckBox RegionCB;
         private System.Windows.Forms.ToolStripMenuItem AttCalculatorToolStripMenuItem;
         public ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
-        private System.Windows.Forms.ToolStripMenuItem 保存地图为图片SToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveToImageToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
