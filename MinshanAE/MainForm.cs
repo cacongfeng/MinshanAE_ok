@@ -35,28 +35,28 @@ namespace MinshanAE
         private void TypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "植被覆盖类型");
-            attTable.ShowDialog(this);
+            attTable.Show(this);
         }
 
         //水系图层属性查询
         private void WaterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "水系");
-            attTable.ShowDialog(this);
+            attTable.Show(this);
         }
 
         //居民地图层属性查询
         private void ResidentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "居民地");
-            attTable.ShowDialog(this);
+            attTable.Show(this);
         }
 
         //交通图层属性查询
         private void TrafficToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttributeTable attTable = new AttributeTable(this.axMapControl1, "交通");
-            attTable.ShowDialog(this);
+            attTable.Show(this);
         }
 
         //主窗口加载函数

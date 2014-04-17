@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.SystemUI;
 
 namespace MinshanAE
 {
@@ -99,7 +100,7 @@ namespace MinshanAE
             pTable.Columns.Add(pColumnCountyArea);
 
             //找到各个属性所在索引
-            int indexOfID = pFClass.FindField("ID");
+            int indexOfID = pFClass.FindField("OBJECTID");
             int indexOfType = pFClass.FindField("NAME1");
             int indexOfTypeArea = pFClass.FindField("Shape_Area");
             int indexOfRegion = pFClass.FindField("DQNAME1");
@@ -323,6 +324,67 @@ namespace MinshanAE
         {
             StatisticForm SForm = new StatisticForm();
             SForm.ShowDialog();
+        }
+
+        /// <summary>
+        ///  用户双击行标题时，地图缩放到该要素位置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ICommand pCommand = new ControlsZoomToSelectedCommandClass();
+            pCommand.OnCreate(m_mapControl.Object);
+            pCommand.OnClick();
+        }
+
+        /// <summary>
+        /// 用户选择的要素改变时，在地图上高亮显示当前选择要素
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection pSelRowCollction = dataGridView1.SelectedRows;
+            IQueryFilter pQueryFilter = new QueryFilterClass();//定义查询类
+            if (pSelRowCollction.Count<=0)
+            {
+                return;
+            }
+            m_mapControl.Map.ClearSelection();
+            m_mapControl.ActiveView.Refresh();
+            #region 根据不同图层的属性表，设置不同的获取不同的layer
+            ILayer layer = null;
+            if (this.Text == "植被覆盖类型")
+            {
+                layer = UsefulFunctions.GetLayerByName(m_mapControl, "植被覆盖");
+            }
+            if (this.Text == "居民地")
+            {
+                layer = UsefulFunctions.GetLayerByName(m_mapControl, "居民地");
+            }
+            if (this.Text == "水系")
+            {
+                layer = UsefulFunctions.GetLayerByName(m_mapControl, "水系");
+            }
+            if (this.Text == "交通")
+            {
+                layer = UsefulFunctions.GetLayerByName(m_mapControl, "交通");
+            }
+            if (this.Text == "行政区")
+            {
+                layer = UsefulFunctions.GetLayerByName(m_mapControl, "行政区");
+            }
+            #endregion
+
+            
+            IFeatureLayer pFeatureLayer = layer as IFeatureLayer;
+            IFeatureSelection pFeatureSelection = pFeatureLayer as IFeatureSelection;
+            string ID = pSelRowCollction[0].Cells["ID"].Value.ToString();
+            pQueryFilter.WhereClause = "OBJECTID = " + ID;//设置查询语句
+            esriSelectionResultEnum selectMethod = esriSelectionResultEnum.esriSelectionResultNew;//设置查询方法
+            pFeatureSelection.SelectFeatures(pQueryFilter, selectMethod, false);
+            m_mapControl.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeoSelection, null, null);//刷新地图
         }
     }
 }
