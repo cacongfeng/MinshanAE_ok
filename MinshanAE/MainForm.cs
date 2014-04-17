@@ -14,6 +14,7 @@ using ESRI.ArcGIS.Display;
 
 using ESRI.ArcGIS.DisplayUI;
 using ESRI.ArcGIS.SystemUI;
+using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.DataSourcesFile;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
@@ -193,6 +194,28 @@ namespace MinshanAE
                 MainFormFunction.DeleteLabel(axMapControl1, Regionlayer);
                 RegionCB.Checked = false;
             }
+        }
+
+       
+
+       
+        private void copyToPageLayout() 
+        { 
+            IObjectCopy objectCopy = new ObjectCopyClass(); 
+            object copyFromMap = axMapControl1.Map; 
+            object copyMap = objectCopy.Copy(copyFromMap); 
+            object copyToMap = axPageLayoutControl1.ActiveView.FocusMap; 
+            objectCopy.Overwrite(copyMap, ref copyToMap); 
+        }
+       
+
+        private void axMapControl1_OnAfterScreenDraw(object sender, IMapControlEvents2_OnAfterScreenDrawEvent e)
+        {
+            IActiveView activeView = (IActiveView)axPageLayoutControl1.ActiveView.FocusMap; 
+            IDisplayTransformation displayTransformation = activeView.ScreenDisplay.DisplayTransformation; 
+            displayTransformation.VisibleBounds = axMapControl1.Extent; 
+            axPageLayoutControl1.ActiveView.Refresh(); 
+            copyToPageLayout(); 
         }
     }
 }
