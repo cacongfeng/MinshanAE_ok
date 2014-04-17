@@ -276,14 +276,16 @@ namespace MinshanAE
                 ptagRECT.top = 0;
                 ptagRECT.right = (int)pActiveView.Extent.Width;
                 ptagRECT.bottom = (int)pActiveView.Extent.Height;
+                //
                 tagRECT deviceRect = axPageLayoutControl1.ActiveView.ScreenDisplay.DisplayTransformation.get_DeviceFrame();
+                //
                 pEnvelope.PutCoords(deviceRect.left, deviceRect.bottom, deviceRect.right, deviceRect.top);
 
-                pExporter.Resolution = 200;
+                pExporter.Resolution = 200;//输出分辨率
                 pExporter.ExportFileName = fileName;
                 pExporter.PixelBounds = pEnvelope;
 
-                pActiveView.Output(pExporter.StartExporting(), (int)pExporter.Resolution, ref ptagRECT, pActiveView.Extent, pTrackCancel);
+                pActiveView.Output(pExporter.StartExporting(), (int)pExporter.Resolution, ref deviceRect, pActiveView.Extent, pTrackCancel);
                 pExporter.FinishExporting();
                 //释放资源
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(pExporter);
