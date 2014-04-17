@@ -60,7 +60,7 @@ namespace MinshanAE
         /// </summary>
         private void LoadTypeAttTable()
         {
-            ILayer pLayer = UsefulFunctions.GetLayerByName(m_mapControl, "植被覆盖a");
+            ILayer pLayer = UsefulFunctions.GetLayerByName(m_mapControl, "植被覆盖");
             if (pLayer == null)
             {
                 MessageBox.Show("没有植被覆盖图层，属性表将为空！");
