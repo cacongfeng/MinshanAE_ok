@@ -147,18 +147,21 @@ namespace MinshanAE
             }
         }
 
+        //根据comboBox选择的植被类型显示选择的要素
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ItemSel = comboBox1.Text;
-            UsefulFunctions.SelectFeatures(axMapControl1,ItemSel);
+            UsefulFunctions.SelectFeatures(axMapControl1, ItemSel);
         }
 
+        //属性计算器功能
         private void AttCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AttCalculatorForm attCalForm = new AttCalculatorForm(this);
             attCalForm.Show(this);
         }
 
+        //删除label
         private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
         {
             ILayer Waterlayer = UsefulFunctions.GetLayerByName(axMapControl1, "水系");
@@ -197,56 +200,31 @@ namespace MinshanAE
             }
         }
 
-        private void copyToPageLayout() 
-        { 
-            IObjectCopy objectCopy = new ObjectCopyClass(); 
-            object copyFromMap = axMapControl1.Map; 
-            object copyMap = objectCopy.Copy(copyFromMap); 
-            object copyToMap = axPageLayoutControl1.ActiveView.FocusMap; 
-            objectCopy.Overwrite(copyMap, ref copyToMap); 
+
+
+        /// <summary>
+        /// pageLayout与地图联动
+        /// </summary>
+        private void copyToPageLayout()
+        {
+            IObjectCopy objectCopy = new ObjectCopyClass();
+            object copyFromMap = axMapControl1.Map;
+            object copyMap = objectCopy.Copy(copyFromMap);
+            object copyToMap = axPageLayoutControl1.ActiveView.FocusMap;
+            objectCopy.Overwrite(copyMap, ref copyToMap);
         }
-       
+
 
         private void axMapControl1_OnAfterScreenDraw(object sender, IMapControlEvents2_OnAfterScreenDrawEvent e)
         {
-            IActiveView activeView = (IActiveView)axPageLayoutControl1.ActiveView.FocusMap; 
-            IDisplayTransformation displayTransformation = activeView.ScreenDisplay.DisplayTransformation; 
-            displayTransformation.VisibleBounds = axMapControl1.Extent; 
-            axPageLayoutControl1.ActiveView.Refresh(); 
-            copyToPageLayout(); 
+            IActiveView activeView = (IActiveView)axPageLayoutControl1.ActiveView.FocusMap;
+            IDisplayTransformation displayTransformation = activeView.ScreenDisplay.DisplayTransformation;
+            displayTransformation.VisibleBounds = axMapControl1.Extent;
+            axPageLayoutControl1.ActiveView.Refresh();
+            copyToPageLayout();
         }
 
-        private void 保存地图为图片SToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            saveFileDialog1.Filter = "JPEG(*.jpg)|*.jpg|BMP(*.BMP)|*.bmp|EMF(*.emf)|*.emf|GIF(*.gif)|*.gif|AI(*.ai)|*.ai|PDF(*.pdf)|*.pdf|PNG(*.png)|*.png|EPS(*.eps)|*.eps|SVG(*.svg)|*.svg|TIFF(*.tif)|*.tif";
-            saveFileDialog1.Title = "输出地图";
-            saveFileDialog1.RestoreDirectory = true;
-            saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.ShowDialog();
-            
-
-        }
-        private void saveFileDialog1_FileOk_1(object sender, CancelEventArgs e)
-        {
-            string fileName = saveFileDialog1.FileName;
-            int filterIndex = saveFileDialog1.FilterIndex;
-            IActiveView pActiveView = axPageLayoutControl1.ActiveView;
-            //ExportPic exportPic = new ExportPic();
-            //bool flag = exportPic.ExportMapToImage(pActiveView,fileName,filterIndex);
-
-            bool flag = ExportMapToImage(pActiveView, fileName, filterIndex);
-            saveFileDialog1.Dispose();
-            if (flag)
-            {
-                MessageBox.Show("图片输出成功！", "成功");
-            }
-            else
-            {
-                MessageBox.Show("图片输出失败，请重新生成！", "失败");
-            }
-        }
-
-
+        //输出地图到图像
         public bool ExportMapToImage(IActiveView pActiveView, string fileName, int filterIndex)
         {
             try
@@ -288,6 +266,9 @@ namespace MinshanAE
                         MessageBox.Show("输出格式错误");
                         return false;
                 }
+
+
+
                 IEnvelope pEnvelope = new EnvelopeClass();
                 ITrackCancel pTrackCancel = new CancelTrackerClass();
                 tagRECT ptagRECT;
@@ -295,18 +276,15 @@ namespace MinshanAE
                 ptagRECT.top = 0;
                 ptagRECT.right = (int)pActiveView.Extent.Width;
                 ptagRECT.bottom = (int)pActiveView.Extent.Height;
+                tagRECT deviceRect = axPageLayoutControl1.ActiveView.ScreenDisplay.DisplayTransformation.get_DeviceFrame();
+                pEnvelope.PutCoords(deviceRect.left, deviceRect.bottom, deviceRect.right, deviceRect.top);
 
-                int pResolution = (int)(pActiveView.ScreenDisplay.DisplayTransformation.Resolution);
-                pEnvelope.PutCoords(ptagRECT.left, ptagRECT.bottom, ptagRECT.right, ptagRECT.top);
-
-                pExporter.Resolution = pResolution;
+                pExporter.Resolution = 200;
                 pExporter.ExportFileName = fileName;
                 pExporter.PixelBounds = pEnvelope;
 
-                pActiveView.Output(pExporter.StartExporting(), pResolution, ref ptagRECT, pActiveView.Extent, pTrackCancel);
+                pActiveView.Output(pExporter.StartExporting(), (int)pExporter.Resolution, ref ptagRECT, pActiveView.Extent, pTrackCancel);
                 pExporter.FinishExporting();
-
-
                 //释放资源
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(pExporter);
                 return true;
@@ -318,7 +296,33 @@ namespace MinshanAE
             }
         }
 
-        
+        //输出地图到图像功能函数
+        private void SaveToImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "JPEG(*.jpg)|*.jpg|BMP(*.BMP)|*.bmp|EMF(*.emf)|*.emf|GIF(*.gif)|*.gif|AI(*.ai)|*.ai|PDF(*.pdf)|*.pdf|PNG(*.png)|*.png|EPS(*.eps)|*.eps|SVG(*.svg)|*.svg|TIFF(*.tif)|*.tif";
+            saveFileDialog1.Title = "输出地图";
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FilterIndex = 1;
 
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = saveFileDialog1.FileName.ToString();
+                int filterIndex = saveFileDialog1.FilterIndex;
+                IActiveView pActiveView = axPageLayoutControl1.ActiveView;
+
+                bool flag = ExportMapToImage(pActiveView, fileName, filterIndex);
+                saveFileDialog1.Dispose();
+                if (flag)
+                {
+                    MessageBox.Show("图片输出成功！", "成功");
+                }
+                else
+                {
+                    MessageBox.Show("图片输出失败，请重新生成！", "失败");
+                }
+            }
+
+
+        }
     }
 }
