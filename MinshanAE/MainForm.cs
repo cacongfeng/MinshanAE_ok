@@ -230,6 +230,7 @@ namespace MinshanAE
             try
             {
                 IExport pExporter = null;
+                #region 判断输出文件格式
                 switch (filterIndex)
                 {
                     case 1:
@@ -267,19 +268,18 @@ namespace MinshanAE
                         return false;
                 }
 
+                #endregion
 
-
-                IEnvelope pEnvelope = new EnvelopeClass();
+                IEnvelope pEnvelope = new EnvelopeClass();//输出图片的大小
                 ITrackCancel pTrackCancel = new CancelTrackerClass();
-                
-                tagRECT deviceRect = axPageLayoutControl1.ActiveView.ScreenDisplay.DisplayTransformation.get_DeviceFrame();
-                //
-                pEnvelope.PutCoords((deviceRect.bottom)*2, deviceRect.left, deviceRect.top, deviceRect.right);
 
+               // tagRECT deviceRect = axPageLayoutControl1.ActiveView.ScreenDisplay.DisplayTransformation.get_DeviceFrame();
+                tagRECT deviceRect = axPageLayoutControl1.ActiveView.ExportFrame;//控制视图中的输出范围，左上角为原点
+                pEnvelope.PutCoords(deviceRect.left, deviceRect.top, deviceRect.right, deviceRect.bottom);//左下角为原点
                 pExporter.Resolution = 200;//输出分辨率
-                pExporter.ExportFileName = fileName;
-                pExporter.PixelBounds = pEnvelope;
+                pExporter.ExportFileName = fileName;//输出文件名
                 
+                pExporter.PixelBounds = pEnvelope;
                 pActiveView.Output(pExporter.StartExporting(), (int)pExporter.Resolution, ref deviceRect, pActiveView.Extent, pTrackCancel);
 
                 pExporter.FinishExporting();
